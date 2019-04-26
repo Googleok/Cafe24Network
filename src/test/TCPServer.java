@@ -22,6 +22,7 @@ public class TCPServer {
 			// 	  : Socket에 SocketAddress (IPAddress + Port)
 			// 		를 바인딩 한다.
 			InetAddress inetAddress = InetAddress.getLocalHost();
+			System.out.println(inetAddress);
 			//String localhost = inetAddress.getHostAddress();
 			//serverSocket.bind(new InetSocketAddress(localhost, 5000));
 			serverSocket.bind(new InetSocketAddress("0.0.0.0", 5000));

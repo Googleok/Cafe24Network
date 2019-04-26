@@ -21,7 +21,7 @@ public class Localhost {
 			
 			byte[] addresses = inetAddress.getAddress();
 			for( byte address : addresses ) {
-				System.out.print( address & 0x000000ff );
+				System.out.print( address & 0x000000ff );	// 0x 는 16진수 표기법 뒤에 ff는 2진수로 1111 15를 의미함
 				System.out.print( '.' );
 			}
 			System.out.print("\n-------------------------------\n");
