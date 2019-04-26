@@ -50,6 +50,7 @@ public class TCPServer {
 						// 클라이언트가 정상종료 한 경우
 						// close() 메소드 호출을 통해서
 						System.out.println("[server] closed by client");
+						break;
 					}
 					
 					String data = new String(buffer, 0, readByteCount, "UTF-8");
@@ -58,13 +59,12 @@ public class TCPServer {
 					// 6. 데이터 쓰기
 					os.write(data.getBytes("UTF-8"));
 					
-					
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {
 				try {
-					if(socket != null && socket.isClosed()) {
+					if(socket != null && socket.isClosed() == false) {
 						socket.close();
 					}
 				} catch (IOException e) {
