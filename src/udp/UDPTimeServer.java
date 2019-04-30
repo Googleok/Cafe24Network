@@ -16,7 +16,9 @@ public class UDPTimeServer {
 		try {
 			// 1. UDP 소켓 생성
 			socket = new DatagramSocket(PORT);
-
+			System.out.println("안녕");
+			
+			
 			while(true) {
 				// 2. Data 수신
 				DatagramPacket receivePacket =

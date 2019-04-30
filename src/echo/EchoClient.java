@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -17,7 +16,6 @@ public class EchoClient {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		ServerSocket serverSocket = null;
 		// public final void main -> 메소드를 오버라이드 하지 말라는의미
 		// 메인함수를 쓰는곳이 여기가 끝이라는거
 
@@ -31,6 +29,7 @@ public class EchoClient {
 		try {
 			scanner = new Scanner(System.in);
 			socket = new Socket();
+			
 			// 2. 서버 연결
 			socket.connect(new InetSocketAddress(SERVER_IP, SERVER_PORT));
 			log("connected");

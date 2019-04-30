@@ -19,7 +19,7 @@ public class UDPTimeClient {
 		try {
 			scanner = new Scanner(System.in);
 			socket = new DatagramSocket();
-
+			
 			// 서버 연결 안함
 
 			while (true) {

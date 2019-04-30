@@ -9,6 +9,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 
+import javax.print.attribute.standard.Severity;
+
 public class TCPServer {
 
 	public static void main(String[] args) {
@@ -19,6 +21,9 @@ public class TCPServer {
 			// 1. 서버소켓 생성
 			serverSocket = new ServerSocket();
 			
+			// 1-1. Time-Wait 시간에 소켓에 포트번호 할당을 가능하게 하기 위하여
+			serverSocket.setReuseAddress(true);
+			
 			// 2. 바인딩(binding)
 			// 	  : Socket에 SocketAddress (IPAddress + Port)
 			// 		를 바인딩 한다.
@@ -26,7 +31,7 @@ public class TCPServer {
 			System.out.println(inetAddress);
 			//String localhost = inetAddress.getHostAddress();
 			//serverSocket.bind(new InetSocketAddress(localhost, 5000));
-			serverSocket.bind(new InetSocketAddress("0.0.0.0", 5000));
+			serverSocket.bind(new InetSocketAddress("0.0.0.0", 6000));
 			
 			// 3. accept 
 			//    : 클라이언트의 연결요청을 기다림
@@ -59,6 +64,11 @@ public class TCPServer {
 					System.out.println("[server] received : " + data);
 					
 					// 6. 데이터 쓰기
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					os.write(data.getBytes("UTF-8"));
 					
 				}
