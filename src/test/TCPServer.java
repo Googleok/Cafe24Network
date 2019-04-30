@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 
 public class TCPServer {
 
@@ -61,7 +62,9 @@ public class TCPServer {
 					os.write(data.getBytes("UTF-8"));
 					
 				}
-			} catch (IOException e) {
+			}catch(SocketException e) {//IOException이 이미 이 기능이 있어서 socketException은 더 위에 작성 
+	            System.out.println("[server] sudden close by client!");
+	        }catch (IOException e) {
 				e.printStackTrace();
 			} finally {
 				try {

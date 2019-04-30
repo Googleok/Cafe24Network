@@ -14,7 +14,7 @@ public class Localhost {
 		try {
 			InetAddress inetAddress = 
 					InetAddress.getLocalHost();
-			
+
 			String hostname = inetAddress.getHostName();
 			String hostAddress = inetAddress.getHostAddress();
 			System.out.println( hostname + ":" + hostAddress);

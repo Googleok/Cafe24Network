@@ -10,7 +10,7 @@ public class KeyboardTest {
 		// 기반 스트림 ( 표준 입력, 키보드, System.in)
 		BufferedReader br = null;
 		InputStreamReader isr = null;
-		
+
 		try {
 			// 보조 스트림1 ( InputStreamReader : byte를 char로 )
 			// byte|byte|byte -> char
